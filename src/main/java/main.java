@@ -128,7 +128,21 @@ public class main {
 
         return 0;
     }
+    
+    //Decodes the outline of a glyph.
+    public static int decodeoutline(Font font, int offset, int recDepth, Outline outl) {
+        if (!is_safe_offset(font, offset, 10)) return -1;
+        int numContours = geti16(font, offset);
+        offset += 10;
 
+        if (numContours > 0) {
+            return simple_outline(font, offset, numContours, outl);
+        } else if (numContours < 0) {
+            return compound_outline(font, offset, recDepth, outl);
+        } else {
+            return 0;
+        }
+    }
 
     //To actually render a glyph into a bitmap
     public static int renderfont(JF jf, int glyph, Image image) {
@@ -352,19 +366,6 @@ public class main {
         return true;
     }
 
-    public static int decodeoutline(Font font, int offset, int recDepth, Outline outl) {
-        if (!is_safe_offset(font, offset, 10)) return -1;
-        int numContours = geti16(font, offset);
-        offset += 10;
-
-        if (numContours > 0) {
-            return simple_outline(font, offset, numContours, outl);
-        } else if (numContours < 0) {
-            return compound_outline(font, offset, recDepth, outl);
-        } else {
-            return 0;
-        }
-    }
 
     private static int simple_outline(Font font, int offset, int numContours, Outline outl) {
         if (!is_safe_offset(font, offset, numContours * 2 + 2)) {
