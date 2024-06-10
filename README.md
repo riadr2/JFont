@@ -31,13 +31,13 @@ This code provides functions to load, process, and render font data. The main fu
 public static Font loadFont(String filepath) {
 ```
 
-#### Description
+**Description :**
 Loads a font from the specified file path.
 
-#### Parameters
+**Parameters :**
 - `filepath`: The path to the font file.
 
-#### Returns
+**Returns :**
 - `Font`: An object representing the loaded font, or `null` if the font cannot be loaded.
 
 ### 2. `glyph_id`
@@ -46,15 +46,15 @@ Loads a font from the specified file path.
 public static int glyph_id(Font font, int charCode, int[] gid)
 ```
 
-#### Description
+**Description :**
 Gets the glyph ID for a given character code.
 
-#### Parameters
+**Parameters :**
 - `font`: The font from which to get the glyph.
 - `charCode`: The character code to look up.
 - `gid`: An array to store the resulting glyph ID.
 
-#### Returns
+**Returns :**
 - `int`: `0` on success, `-1` on failure.
 
 ### 3. `gmetrics`
@@ -63,15 +63,15 @@ Gets the glyph ID for a given character code.
 public static int gmetrics(JF jf, int[] gid, GMetrics metrics)
 ```
 
-#### Description
+**Description :**
 Calculates the metrics for a given glyph.
 
-#### Parameters
+**Parameters :**
 - `jf`: An `JF` object containing the font and transformation data.
 - `gid`: An array containing the glyph ID.
 - `metrics`: An `GMetrics` object to store the calculated metrics.
 
-#### Returns
+**Returns :**
 - `int`: `0` on success, `-1` on failure.
 
 ### 4. `sftrender`
@@ -80,15 +80,15 @@ Calculates the metrics for a given glyph.
 public static int renderfont(JF jf, int glyph, Image image)
 ```
 
-#### Description
+**Description :**
 Renders a glyph into a bitmap image.
 
-#### Parameters
+**Parameters :**
   - `jf`: An `JF` object containing the font and transformation data.
 - `glyph`: The glyph ID to render.
 - `image`: An `Image` object to store the rendered image.
 
-#### Returns
+**Returns :**
 - `int`: `0` on success, `-1` on failure.
 
 
@@ -98,16 +98,16 @@ Renders a glyph into a bitmap image.
 public static int decodeoutline(Font font, int offset, int recDepth, Outline outl)
 ```
 
-#### Description
+**Description :**
 Decodes the outline of a glyph.
 
-#### Parameters
+**Parameters :**
 - `font`: The font to process.
 - `offset`: The offset to the outline data.
 - `recDepth`: The recursion depth (used for compound glyphs).
 - `outl`: An `Outline` object to store the decoded outline.
 
-#### Returns
+**Returns :**
 - `int`: `0` on success, `-1` on failure.
 
 
@@ -116,10 +116,10 @@ Decodes the outline of a glyph.
 
 ### 1. `JF`
 
-#### Description
+**Description :**
 Represents the font transformation data.
 
-#### Fields
+**Fields :**
 - `font`: The font object.
 - `xScale`: The scale factor in the x direction.
 - `yScale`: The scale factor in the y direction.
@@ -128,10 +128,10 @@ Represents the font transformation data.
   
 ### 2. `Font`
 
-#### Description
+**Description :**
 Represents a font.
 
-#### Fields
+**Fields :**
 - `memory`: The byte array of the font data.
 - `size`: The size of the font data.
 - `unitsPerEm`: Units per em value of the font.
@@ -140,20 +140,20 @@ Represents a font.
 
 ### 3. `Image`
 
-#### Description
+**Description :**
 Represents an image of a rendered glyph.
 
-#### Fields
+**Fields :**
 - `pixels`: The array of pixel data.
 - `width`: The width of the image.
 - `height`: The height of the image.
 
 ### 4. `GMetrics`
 
-#### Description
+**Description :**
 Represents the metrics of a glyph.
 
-#### Fields
+**Fields :**
 - `minX`: Minimum x coordinate.
 - `minY`: Minimum y coordinate.
 - `maxX`: Maximum x coordinate.
@@ -164,10 +164,10 @@ Represents the metrics of a glyph.
 
 ### 5. `Outline`
 
-#### Description
+**Description :**
 Represents the outline of a glyph.
 
-#### Fields
+**Fields :**
 - `numContours`: Number of contours in the glyph.
 - `endPtsOfContours`: Array of end points of contours.
 - `numPoints`: Number of points in the glyph.
@@ -178,19 +178,19 @@ Represents the outline of a glyph.
 
 ### 6. `Point`
 
-#### Description
+**Description :**
 Represents a point in a glyph outline.
 
-#### Fields
+**Fields :**
 - `x`: The x coordinate of the point.
 - `y`: The y coordinate of the point.
 
 ### 7. `Raster`
 
-#### Description
+**Description :**
 Represents a raster buffer for drawing.
 
-#### Fields
+**Fields :**
 - `pixels`: The array of pixel data.
 - `width`: The width of the raster buffer.
 - `height`: The height of the raster buffer.
